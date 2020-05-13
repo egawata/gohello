@@ -3,12 +3,14 @@ package main
 import (
 	"log"
 	"net/http"
+
+	"github.com/egawata/gohello/getname"
 )
 
 type MyHandler struct{}
 
 func (s *MyHandler) ServeHTTP(res http.ResponseWriter, req *http.Request) {
-	content := []byte(`Welcome to github.com/egawata/gohello`)
+	content := []byte(`Hello, ` + getname.Name())
 	res.Write(content)
 }
 
